@@ -1,0 +1,30 @@
+section.section
+  header.section__header
+    h3.section__h3 getDocumentScrollLeft(doc)
+  div.section__content
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd Size
+    p getDocumentScrollLeft() 方法用来获取当前文档（窗口）滚动条的横向滚动的距离。
+    h4.section__h4 Parameters
+    h5.section__h4 doc
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Document
+    dl.section__dl
+      dt.section__dt Default：
+      dd.section__dd document
+    p （可选）doc 参数指定要获取滚动距离的文档。
+    h4.section__h4 Returns
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Number
+    p 返回文档滚动的距离。
+    pre.section__pre
+      code.section__code.
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 getDocumentScrollLeft 单个方法
+        import getDocumentScrollLeft from '@yaohaixiao/dom.js/getDocumentScrollLeft'
+
+        DOM.getDocumentScrollLeft() // -> 100

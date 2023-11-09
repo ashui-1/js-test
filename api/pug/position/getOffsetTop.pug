@@ -1,0 +1,63 @@
+section.section
+  header.section__header
+    h3.section__h3 getOffsetTop(el)
+  div.section__content
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd Position
+    p getOffsetTop() 方法用来获取 DOM 节点相对于窗口的 top（纵坐标）值。
+    h4.section__h4 Parameters
+    h5.section__h4 el
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd HTMLElement
+    p （必须）el 参数指定 DOM 元素。
+    h4.section__h4 Returns
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Number
+    p 返回 offsetTop 值。如果元素存在 offsetParent 的父节点，那么这个值会累加直到其祖先节点不再有 offsetParent。
+    pre.section__pre
+      code.section__code.
+        &lt;style&gt;
+        .list {
+          position: relative;
+          z-index: 1;
+        }
+        .list,
+        .item {
+          margin: 0;
+          padding: 0;
+          list-style-type: none;
+          overflow: hidden;
+        }
+        .item {
+          margin: 0;
+          border: 2px;
+          padding: 10px;
+          height: 40px;
+          overflow: hidden;
+        }
+        &lt;/style&gt;
+
+        &lt;ul id="list" class="list"&gt;
+            &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+            &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+            &lt;li class="item project"&gt;Projects&lt;/li&gt;
+            &lt;li class="item"&gt;About&lt;/li&gt;
+        &lt;/ul&gt;
+
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 getOffsetTop 单个方法
+        import getOffsetTop from '@yaohaixiao/dom.js/getOffsetTop'
+
+        const $list = DOM.byId('#list')
+        const $home = DOM.byId('#home')
+        const $blog = DOM.getEl('.blog')
+        const $project = DOM.getEl('.project')
+
+        DOM.getOffsetTop($list) // -> 0
+        getOffsetTop($home) // -> 0
+        getOffsetTop($blog) // -> 64
+        getOffsetTop($project) // -> 128

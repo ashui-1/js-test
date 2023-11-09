@@ -1,0 +1,48 @@
+section.section
+  header.section__header
+    h3.section__h3 getStyle(el, attr)
+  div.section__content
+    h4.section__h4 Description
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd Style
+    p getStyle() 用来获取 DOM 元素的某个 CSS 样式值。
+    h4.section__h4 Parameters
+    h5.section__h4 el
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd HTMLElement
+    p （必须）el 参数指定 DOM 元素。
+    h5.section__h4 attr
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd String
+    p （必须）指定 CSS 属性名称。
+    h4.section__h4 Returns
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd String
+    p 返回指定的 attr 的属性值。
+    pre.section__pre
+      code.section__code.
+        &lt;ul id="list" class="list"&gt;
+            &lt;li class="item active"&gt;Home&lt;/li&gt;
+            &lt;li class="item"&gt;Blog&lt;/li&gt;
+            &lt;li class="item"&gt;Projects&lt;/li&gt;
+            &lt;li class="item"&gt;About&lt;/li&gt;
+        &lt;/ul&gt;
+
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 setStyle 单个方法
+        import setStyle from '@yaohaixiao/dom.js/setStyle'
+
+        const $list = DOM.byId('#list')
+
+        DOM.setStyle($list, 'display', 'none')
+        DOM.setStyle($list, 'display', 'block')
+
+        setStyle($list, 'background-color', '#f2f2f2')
+
+        DOM.getStyle($list, 'background-color') // -> '#f2f2f2'
+        getStyle($list, 'display') // -> 'block'

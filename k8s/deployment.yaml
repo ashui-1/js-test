@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: projectname
+  namespace: kube-public
+  labels:
+    app: projectname
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: projectname
+  template:
+    metadata:
+      labels:
+        app: projectname
+    spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 5000
+        runAsGroup: 5000
+        fsGroup: 5000
+      containers:
+        - name: projectname
+          image: JOB_NAME:BUILD_NUMBER
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+          resources:
+            requests:
+              cpu: "500m"
+              memory: "500Mi"
+            limits:
+              cpu: "500m"
+              memory: "500Mi"
+          env:
+            - name: "TZ"
+              value: "Asia/Shanghai"
+          volumeMounts:
+            - name: cm
+              mountPath: /etc/nginx/conf.d/default.conf
+              subPath: default.conf
+      volumes:
+        - name: cm
+          configMap:
+            name: projectname-cm
+            items:
+              - key: default.conf
+                path: default.conf
+

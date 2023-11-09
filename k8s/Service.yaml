@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: projectname-svc
+  namespace: kube-public
+  labels:
+    app: projectname
+spec:
+  ports:
+  - port: 800
+    targetPort: 80
+    protocol: TCP
+    name: http-port
+  - port: 4430
+    targetPort: 443
+    protocol: TCP
+    name: https-port
+  type: NodePort
+  selector:
+    app: projectname

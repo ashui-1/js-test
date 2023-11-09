@@ -1,0 +1,14 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: projectname-pvc
+  namespace: kube-public
+spec:
+  storageClassName: "193server-nfs-jimmy"
+  accessModes:
+  - ReadWriteMany
+  resources:
+    requests:
+      storage: sizeGi
+    limits: 
+      storage: sizeGi

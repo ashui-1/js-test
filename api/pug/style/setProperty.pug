@@ -1,0 +1,40 @@
+section.section
+  header.section__header
+    h3.section__h3 setProperty(prop, value)
+  div.section__content
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd Style
+    p setProperty() 用来为一个声明了 CSS 样式的对象设置一个新的值。
+    h4.section__h4 Parameters
+    h5.section__h4 prop
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd String
+    p （必须）CSS 属性名称。
+    h5.section__h4 value
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd String
+    p （必须）CSS 属性值。
+    pre.section__pre
+      code.section__code.
+        &lt;style&gt;
+          :root {
+            --outline - zIndex: 2000;
+          }
+        &lt;/style&gt;
+
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 setProperty 单个方法
+        import setProperty from '@yaohaixiao/dom.js/setProperty'
+
+        // 设置属性
+        DOM.setProperty('--outline-sticky-height', '100%')
+        setProperty('--outline-chapters-width', '100%')
+
+        // 获取属性值
+        DOM.getProperty('--outline-zIndex') // => '2000'
+        DOM.getProperty('--outline-sticky-height') // => '100%'
+        DOM.getProperty('--outline-chapters-width') // => '100%'

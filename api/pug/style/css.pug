@@ -1,0 +1,67 @@
+section.section
+  header.section__header
+    h3.section__h3 css(el, attr[, value])
+  div.section__content
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd Style
+    p css() 方法用来设置或者查询 DOM 元素的 CSS 样式。
+    h4.section__h4 Parameters
+    h5.section__h4 el
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd String
+    p （必须）el 参数指定 DOM 元素。
+    h5.section__h4 attr
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd String|Object|Array
+    p （必须）指定 CSS 属性名称。
+    h5.section__h4 value
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd String
+    dl.section__dl
+      dt.section__dt Default：
+      dd.section__dd true
+    p (可选) 要设置的 CSS 属性值。
+    h4.section__h4 Returns
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Object|String
+    p 返回指定的单个或者 attr 的属性值。
+    pre.section__pre
+      code.section__code.
+        &lt;ul id="list" class="list"&gt;
+          &lt;li class="item active"&gt;Home&lt;/li&gt;
+          &lt;li class="item"&gt;Blog&lt;/li&gt;
+          &lt;li class="item"&gt;Projects&lt;/li&gt;
+          &lt;li class="item"&gt;About&lt;/li&gt;
+        &lt;/ul&gt;
+
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 css 单个方法
+        import css from '@yaohaixiao/dom.js/css'
+
+        const $list = DOM.byId('#list')
+
+        // 设置单个 CSS 属性值
+        DOM.css($list, 'display', 'none')
+        css($list, 'display', 'block')
+
+        // 设置多个 CSS 属性值
+        setStyle($list, {
+          'background-color': '#f2f2f2',
+          'float': 'left'
+        })
+
+        // 获取单个 CSS 属性值
+        css($list, 'display') // -> 'block'
+
+        // 获取多个 CSS 属性值
+        css($list, ['background-color', 'float'])
+        // -> {
+        //      'background-color': '#f2f2f2',
+        //      'float': 'left'
+        //    }

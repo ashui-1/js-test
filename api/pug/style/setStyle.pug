@@ -1,0 +1,44 @@
+section.section
+  header.section__header
+    h3.section__h3 setStyle(el, attr, val)
+  div.section__content
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd Style
+    p setStyle() 方法用来给 DOM 元素添加 CSS 样式。
+    h4.section__h4 Parameters
+    h5.section__h4 el
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd HTMLElement
+    p （必须）主题名称。
+    h5.section__h4 attr
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd String
+    p （必须）属性名称。
+    h5.section__h4 val
+      dl.section__dl
+        dt.section__dt Type：
+        dd.section__dd String
+      p （必须）属性值。
+    pre.section__pre
+      code.section__code.
+        &lt;ul id="list" class="list"&gt;
+            &lt;li class="item active"&gt;Home&lt;/li&gt;
+            &lt;li class="item"&gt;Blog&lt;/li&gt;
+            &lt;li class="item"&gt;Projects&lt;/li&gt;
+            &lt;li class="item"&gt;About&lt;/li&gt;
+        &lt;/ul&gt;
+
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 addClass 单个方法
+        import setStyle from '@yaohaixiao/dom.js/setStyle'
+
+        const $list = DOM.byId('#list')
+
+        DOM.setStyle($list, 'display', 'none')
+        DOM.setStyle($list, 'display', 'block')
+
+        setStyle($list, 'background-color', '#f2f2f2')

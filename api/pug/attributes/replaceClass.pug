@@ -1,0 +1,50 @@
+section.section
+  header.section__header
+    h3.section__h3 replaceClass(el, oldCls, newCls)
+  div.section__content
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd Attributes
+    p replaceClass() 方法用来替换 DOM 元素中的 className 的样式。
+    h4.section__h4 Parameters
+    h5.section__h4 el
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd HTMLElement
+    p （必须）el 参数指定需要替换 class 样式的 DOM 元素。
+    h5.section__h4 oldCls
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd String
+    p （必须）oldCls 要替换的 class 样式名称。
+    h5.section__h4 newCls
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd String
+    p （必须）newCls 用来替换的 class 样式名称。
+    h4.section__h4 Usage
+    pre.section__pre
+      code.section__code.
+        &lt;ul id="list" class="list"&gt;
+            &lt;li class="item active"&gt;Home&lt;/li&gt;
+            &lt;li class="item"&gt;Blog&lt;/li&gt;
+            &lt;li class="item"&gt;Projects&lt;/li&gt;
+            &lt;li class="item"&gt;About&lt;/li&gt;
+        &lt;/ul&gt;
+
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 addClass 单个方法
+        import replaceClass from '@yaohaixiao/dom.js/removeClass'
+
+        const $list = DOM.byId('#list')
+
+        // 添加 class 样式
+        DOM.addClass($list, 'nav')
+
+        // 判断是否存在 class 样式
+        DOM.replaceClass($list, 'nav', 'main')
+
+        hasClass($list, 'list') => true
+        hasClass($list, 'nav') => false
+        hasClass($list, 'main') => true

@@ -1,0 +1,47 @@
+section.section
+  header.section__header
+    h3.section__h3 matches(el, selector)
+  div.section__content
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd Base
+    p matches() 方法用来获取 el 节点下匹配 selector 选择器的 DOM 节点。
+    h4.section__h4 Parameters
+    h5.section__h4 el
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd HTMLElement
+    p （必须）el 参数指定 DOM 元素。
+    h5.section__h4 selector
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd String
+    p （必须）selector 指定匹配 DOM 元素的选择器。
+    h5.section__h4 Returns
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Boolean
+    p el 节点查询到匹配 selector 的 DOM 节点，返回 DOM 节点，否则返回 false。
+    pre.section__pre
+      code.section__.
+        &lt;ul id="list" class="list"&gt;
+            &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+            &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+            &lt;li class="item project"&gt;Projects&lt;/li&gt;
+            &lt;li class="item"&gt;About&lt;/li&gt;
+        &lt;/ul&gt;
+
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 matches 单个方法
+        import matches from '@yaohaixiao/dom.js/matches'
+
+        const $list = DOM.byId('#list')
+        const $home = DOM.byId('#home')
+
+        DOM.matches($list, '.active')
+        // -> &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+        matches($home, '#home')
+        // -> &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+
+        matches($home, '.blog') // -> false

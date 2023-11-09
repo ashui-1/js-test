@@ -1,0 +1,46 @@
+section.section
+  header.section__header
+    h3.section__h3 setStyles(el, styles)
+  div.section__content
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd Style
+    p setStyles() 方法用来给 DOM 元素批量添加 CSS 样式。
+    h4.section__h4 Parameters
+    h5.section__h4 el
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd HTMLElement
+    p （必须）主题名称。
+    h5.section__h4 styles
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Object|String
+    p （必须）主题名称。
+    pre.section__pre
+      code.section__code.
+        &lt;ul id="list" class="list"&gt;
+            &lt;li class="item active"&gt;Home&lt;/li&gt;
+            &lt;li class="item"&gt;Blog&lt;/li&gt;
+            &lt;li class="item"&gt;Projects&lt;/li&gt;
+            &lt;li class="item"&gt;About&lt;/li&gt;
+        &lt;/ul&gt;
+
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 setStyles 单个方法
+        import setStyles from '@yaohaixiao/dom.js/setStyles'
+
+        const $list = DOM.byId('#list')
+
+        DOM.setStyle($list, {
+          display: 'none',
+          'background-color': '#f2f2f2'
+        ))
+        setStyles($list, {
+          'float': 'left',
+          'overflow': 'hidden'
+        })
+
+        DOM.getStyle($list, 'background-color') // -> '#f2f2f2'
+        getStyle($list, 'overflow') // -> 'hidden'

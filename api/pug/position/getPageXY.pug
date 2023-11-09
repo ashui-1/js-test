@@ -1,0 +1,59 @@
+section.section
+  header.section__header
+    h3.section__h3 getPageXY(el)
+  div.section__content
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd Position
+    p getPageXY() 方法用来获取基于页面坐标获取元素的当前 X 和 Y 位置。
+    h4.section__h4 Parameters
+    h5.section__h4 el
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd HTMLElement
+    p （必须）el 参数指定 DOM 元素。
+    h4.section__h4 Returns
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Number
+    p 返回 DOM 元素在当前页面的 X 和 Y 位置。
+    pre.section__pre
+      code.section__code.
+        &lt;style&gt;
+        .list {
+          position: relative;
+          z-index: 1;
+        }
+        .list,
+        .item {
+          margin: 0;
+          padding: 0;
+          list-style-type: none;
+          overflow: hidden;
+        }
+        .item {
+          margin: 0;
+          border: 2px;
+          padding: 10px;
+          height: 40px;
+          overflow: hidden;
+        }
+        &lt;/style&gt;
+
+        &lt;ul id="list" class="list"&gt;
+            &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+            &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+            &lt;li class="item project"&gt;Projects&lt;/li&gt;
+            &lt;li class="item"&gt;About&lt;/li&gt;
+        &lt;/ul&gt;
+
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 getPageXY 单个方法
+        import getPageXY from '@yaohaixiao/dom.js/getPageXY'
+
+        const $list = DOM.byId('#list')
+        const $project = DOM.getEl('.project')
+
+        DOM.getPageXY($list) // -> { x: 0, y: 0 }
+        getPageXY($project) // -> { x: 0, y: 128 }

@@ -1,0 +1,75 @@
+section.section
+  header.section__header
+    h3.section__h3 createElement(tagName[, attrs, children])
+  div.section__content
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd Base
+    p createElement() 方法用来创建 DOM 节点，并添加属性和子节点。
+    h4.section__h4 Parameters
+    h5.section__h4 tagName
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd String
+    p （必须）标签名称。
+    h5.section__h4 attrs
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Object|Array|HTMLElement|DocumentFragment|String
+    ul
+      li Object：要添加的 HTML 属性/值对象；
+      li Array：添加到创建的 DOM 元素中的多个子元素的数组；
+      li HTMLElement：添加到创建的 DOM 元素中的（单个）子元素；
+      li DocumentFragment：添加到创建的 DOM 元素中的文档碎片；
+      li String：添加到创建的 DOM 元素中的文本（会作为文本节点）；
+    p （可选）给创建的 DOM 元素添加的 HTML 属性/值对象或者子元素。
+    h5.section__h4 children
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Array|HTMLElement|DocumentFragment|String
+    ul
+      li Array：添加到创建的 DOM 元素中的多个子元素的数组；
+      li HTMLElement：添加到创建的 DOM 元素中的（单个）子元素；
+      li DocumentFragment：添加到创建的 DOM 元素中的文档碎片；
+      li String：添加到创建的 DOM 元素中的文本（会作为文本节点）；
+    p （可选）给创建的 DOM 元素添加的子元素。
+    h5.section__h4 Returns
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd HTMLElement
+    p 返回创建的 DOM 元素。
+    pre.section__pre
+      code.section__.
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 createElement 单个方法
+        import createElement from '@yaohaixiao/dom.js/createElement'
+
+        // 创建 LI 节点，并且添加一个 TextNode 类型的子元素
+        const $home = DOM.createElement('li', {
+          id: 'home',
+          className: 'item active'
+        }, DOM.text('Home'))
+
+        // 创建 LI 节点，设置 class 属性并且添加 Blog 字符串（添加一个 TextNode 类型的子元素）
+        const $blog = createElement('li', {
+          className: 'item'
+        }, 'Blog')
+
+        // 创建 LI 节点，并且添加 About 字符串（添加一个 TextNode 类型的子元素）
+        const $about = createElement('li', 'About')
+
+        addClass($about, 'item')
+
+        // 创建 UL 节点，并且添加多个 LI 子节点
+        const $list = createElement('ul', {
+          id: 'list',
+          className: 'list'
+        ), [
+          $home,
+          $blog,
+          $about
+        ])
+
+        document.body.appendChild($list)
+

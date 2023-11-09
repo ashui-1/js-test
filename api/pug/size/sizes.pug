@@ -1,0 +1,94 @@
+section.section
+  header.section__header
+    h3.section__h3 sizes(el)
+  div.section__content
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd Size
+    p sizes() 方法用来获取DOM 元素的尺寸信息，数据格式如下：
+    pre.section__pre
+      code.section__code.
+        {
+          offsetHeight: 210,
+          offsetWidth: 1625,
+          innerHeight: 210,
+          innerWidth": 1625,
+          outerHeight: 210,
+          outerWidth: 1625,
+          margin: {
+            top: 0,
+            right: 0,
+            bottom: 0,
+            left: 0
+          },
+          border: {
+            top: 0,
+            right: 0,
+            bottom: 0,
+            left: 0
+          },
+          padding: {
+            top: 70,
+            right: 0,
+            bottom: 0,
+            left: 0
+          },
+          rect: {
+            x: 274,
+            y: 14,
+            width: 1625,
+            height: 210,
+            top: 14,
+            right: 1899,
+            bottom: 224,
+            left: 274
+          }
+        }
+    h4.section__h4 Parameters
+    h5.section__h4 el
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd String
+    p （必须）el 参数指定 DOM 元素。
+    h4.section__h4 Returns
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Object
+    p 返回 DOM 元素相关的尺寸信息。
+    pre.section__pre
+      code.section__code.
+        &lt;style&gt;
+        .list,
+        .item {
+          margin: 0;
+          padding: 0;
+          list-style-type: none;
+          overflow: hidden;
+        }
+        .item {
+          float: left;
+          margin: 5px 0;
+          border: 2px;
+          padding: 10px;
+          height: 40px;
+          overflow: hidden;
+        }
+        &lt;/style&gt;
+
+        &lt;ul id="list" class="list"&gt;
+            &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+            &lt;li class="item"&gt;Blog&lt;/li&gt;
+            &lt;li class="item"&gt;Projects&lt;/li&gt;
+            &lt;li class="item"&gt;About&lt;/li&gt;
+        &lt;/ul&gt;
+
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 sizes 单个方法
+        import sizes from '@yaohaixiao/dom.js/sizes'
+
+        const $list = DOM.byId('#list')
+        const $home = DOM.byId('#home')
+
+        DOM.sizes($list)
+        sizes($home)
