@@ -15,38 +15,56 @@ spec:
       labels:
         app: projectname
     spec:
-      securityContext:
-        runAsNonRoot: true
-        runAsUser: 5000
-        runAsGroup: 5000
-        fsGroup: 5000
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - preference:
+              matchExpressions:
+              - key: ram
+                operator: In
+                values:
+                - 8g
+            weight: 100
       containers:
         - name: projectname
           image: JOB_NAME:BUILD_NUMBER
           imagePullPolicy: IfNotPresent
+          livenessProbe:
+            failureThreshold: 3
+            initialDelaySeconds: 10
+            periodSeconds: 2
+            successThreshold: 1
+            tcpSocket:
+              port: 80
+            timeoutSeconds: 2
           ports:
             - name: http
               containerPort: 80
               protocol: TCP
           resources:
-            requests:
-              cpu: "500m"
-              memory: "500Mi"
             limits:
-              cpu: "500m"
-              memory: "500Mi"
+              cpu: 250m
+              memory: 512Mi
+            requests:
+              cpu: 100m
+              memory: 256Mi
           env:
             - name: "TZ"
               value: "Asia/Shanghai"
           volumeMounts:
+            - name: pvc
+              mountPath: /data
+              subPath: projectname/data
             - name: cm
-              mountPath: /etc/nginx/conf.d/default.conf
-              subPath: default.conf
+              mountPath: /etc/nginx/nginx.conf
+              subPath: nginx.conf
       volumes:
+        - name: pvc
+          persistentVolumeClaim:
+            claimName: projectname-pvc
         - name: cm
           configMap:
             name: projectname-cm
             items:
-              - key: default.conf
-                path: default.conf
-
+              - key: "nginx.conf"
+                path: "nginx.conf"
